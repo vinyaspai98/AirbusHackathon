@@ -152,9 +152,14 @@
       </div>
     </div>
 
+<center>
+  
+  <div id='dyn'>
+  
+</div>
 
 
-
+</center>
 
 
 
@@ -219,10 +224,26 @@ var stud = snap.val();
     }
   }
 
-
 console.log(item);
-     console.log(key);
+console.log(key);
+
+var myNode = document.getElementById("dyn");
+      while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+      }
+for (var i = 0; i < item.length; i++) {
+ var node = document.createElement("h4");
+      var textnode = document.createTextNode(key[i] +' : '+item[i]);
+      node.appendChild(textnode);
+      document.getElementById("dyn").appendChild(node);
+}
+
 });
+
+
+
+
+
 
 
 console.log(ref)
