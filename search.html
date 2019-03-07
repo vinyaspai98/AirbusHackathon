@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- msrit Assist -->
+  <title>AIRBUS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
+
+
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <style type="text/css">
+    #examf1{
+      width: 60%;
+    }
+
+    @media (max-width: 800px) {
+  /* CSS that should be displayed if width is equal to or less than 800px goes here */
+  #examf1 {
+    width: 100%;
+}
+  </style>
+</head>
+<body>
+
+  <div class="fixed-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+      <div class="container">
+        <a class="navbar-brand" href="index.html" style="text-transform: uppercase;"> AIRBUS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+
+      <li class="nav-item">
+            <a class="nav-link" href="/a320.html">A320</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/a330.html">A330</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/a350.html">A350</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/search.html">Search & Filter</a>
+          </li>
+    </ul>
+</div>
+</div>
+</nav>
+</div>
+
+
+
+
+
+
+<div style="padding-top: 70px;"></div>
+
+
+
+
+
+
+
+<center> <h2 id ="exam">Search</h2>
+    </center>
+
+
+
+
+
+    <div class="container" id="examf1"  >
+
+      <div class="panel-group" >
+        <div class="panel panel-primary" >
+          <!-- <div class="panel-heading">Blood Donors</div> -->
+
+          <div class="panel-body" >
+            <form  method="GET">
+                
+              
+
+
+              <!-- <div class="form-group">
+                <label for="input1">MSN</label>
+                <input type="text" class="form-control" id="input1" name="msn" placeholder="msn" required>
+              </div> -->
+
+              <div class="form-group">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Search by</label>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name ="type" required>
+
+              <option value="1">MSN</option>
+              <option value="2">Flight no</option>
+              <option value="3">Airport</option>
+              <option value="4">Harness length</option>
+              <option value="5">Model</option>
+              
+            </select>
+          </div>
+
+          <div class="form-group">
+                <label for="input1"></label>
+                <input type="text" class="form-control" id="input1" name="val" placeholder="msn">
+              </div>
+
+          <div class="form-group">
+                <label for="input2">Date</label>
+                <input type="date" class="form-control" id="input2" name="date" placeholder="msn">
+              </div>
+
+              <div class="form-group">
+                <label for="input3">Destination</label>
+                <input type="text" class="form-control" id="input3" name="des" placeholder="msn">
+              </div>
+
+              
+
+
+         
+
+
+
+
+              <button type="button" class="btn btn-primary" onclick="getinfo()">Submit</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+
+<script type="text/javascript">
+
+
+var config = {
+  apiKey: "AIzaSyCvLRwJ4PNd4joJKBjbe8458QLGuey1qYg",
+  authDomain: "techmsrit1.firebaseapp.com",
+  databaseURL: "https://techmsrit1.firebaseio.com",
+  projectId: "techmsrit1",
+  storageBucket: "techmsrit1.appspot.com",
+  messagingSenderId: "193681871061"
+};
+firebase.initializeApp(config);
+
+var url = "airbus/";
+var ref = firebase.database().ref(url);
+
+
+function getinfo()
+{
+ var type = document.getElementById('inlineFormCustomSelect').value;
+ var val = document.getElementById('input1').value;
+ var date = document.getElementById('input2').value;
+ var dest = document.getElementById('input3').value;
+
+
+
+var n1 = '';
+if(type == 1)
+  n1 = "msn";
+if(type ==2)
+  n1 = "flight";
+if(type == 3)
+  n1 = "airtemp";
+if(type == 4)
+  n1 = "harness";
+if(type == 5)
+  n1 = "model";
+var item = [];
+var key =[];
+ref.orderByChild(n1).equalTo(val).on('child_added',function(snap){
+console.log(snap.val());
+
+var i = 0;
+var stud = snap.val();
+ for(let prop in stud)
+ { 
+   if (stud.hasOwnProperty(prop))
+   { 
+     item[i] = stud[prop];
+     key[i] = prop;
+     
+      // do stuff
+      i++;
+    }
+  }
+
+
+console.log(item);
+     console.log(key);
+});
+
+
+console.log(ref)
+ 
+
+}
+
+
+</script>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</script>
+</html>

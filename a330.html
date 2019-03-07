@@ -8,9 +8,7 @@
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script language="javascript" type="text/javascript" src="js/p5.js"></script>
-  <script language="javascript" type="text/javascript" src="js/p5.dom.js"></script>
-  <script type="text/javascript" src="js/exam.js"></script>
+
 
 
 
@@ -19,6 +17,7 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script type="text/javascript" src='a320.js'></script>
   <style type="text/css">
     
     #examf1{
@@ -83,13 +82,8 @@
 
 
 
-
-<center> <h2 id ="exam">A330</h2>
+<center> <h2 id="exam">A330</h2>
     </center>
-
-
-
-
 
     <div class="container" id="examf1" >
 
@@ -98,8 +92,8 @@
           <!-- <div class="panel-heading">Blood Donors</div> -->
 
           <div class="panel-body" >
-            <form action="test.php" method="POST">
-                <input type="hidden" name="model" value="a330"  >
+            <form method="POST">
+                <input type="hidden" name="model" value="a330" id='input7' >
               
 
 
@@ -171,7 +165,7 @@
 
 
 
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-primary"  onClick='upload()'>Submit</button>
             </form>
           </div>
 
@@ -186,7 +180,66 @@
 
 
 </body>
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+
 <script type="text/javascript">
+
+
+var config = {
+  apiKey: "AIzaSyCvLRwJ4PNd4joJKBjbe8458QLGuey1qYg",
+  authDomain: "techmsrit1.firebaseapp.com",
+  databaseURL: "https://techmsrit1.firebaseio.com",
+  projectId: "techmsrit1",
+  storageBucket: "techmsrit1.appspot.com",
+  messagingSenderId: "193681871061"
+};
+firebase.initializeApp(config);
+
+var url = "airbus/";
+var ref = firebase.database().ref(url);
+
+function upload(){
+var msn = document.getElementById('input1').value;
+var msn1 = document.getElementById('input2').value;
+var msn2 = document.getElementById('input3').value;
+var msn3 = document.getElementById('input4').value;
+var msn4 = document.getElementById('input5').value;
+var msn5 = document.getElementById('input6').value;
+var msn6 = document.getElementById('input7').value;
+var msn7 = document.getElementById('input8').value;
+var msn8 = document.getElementById('input9').value;
+var msn9 = document.getElementById('input10').value;
+var msn10 = document.getElementById('input11').value;
+var msn11 = document.getElementById('input12').value;
+var msn12 = document.getElementById('input13').value;
+
+
+ref.push ({
+   msn: msn,
+   harness : msn1,
+   gross : msn2,
+   atpressure : msn3,
+   rmtemp : msn4,
+   airtemp : msn5,
+   model : msn6,
+   fcapl : msn7,
+   fcapr : msn8,
+   fql : msn9,
+   fqr : msn10,
+   maxal : msn11,
+   flight : msn12,
+
+});
+
+
+
+
+alert('Successfully updated');
+}
+// var n1 = document.getElementById('')
+  
+</script>
+<script type="text/javascript"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

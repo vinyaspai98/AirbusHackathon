@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>airbus</title>
+	<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>
+</head>
+<body>
+<form action="display.html" method="post">
+<input type="text" name="search" placeholder="Search.." list="add" oninput="myfun()" id="se">
+<datalist id="add">
+	
+	</datalist>
+	<input type="submit" value="click">
+	</form>
+	
+	<script type="text/javascript">
+		var config = {
+	    apiKey: "AIzaSyDepvrT4hJrBkkafiEZoXSK56p2K0wvZfw",
+	    authDomain: "airbus-727f8.firebaseapp.com",
+	    databaseURL: "https://airbus-727f8.firebaseio.com",
+	    projectId: "airbus-727f8",
+	    storageBucket: "airbus-727f8.appspot.com",
+	    messagingSenderId: "286162080078"
+	  };
+	  firebase.initializeApp(config);
+	function myfun()
+	{
+
+		var myNode = document.getElementById("add");
+while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+}
+	 var search = document.getElementById("se").value;
+	 var aeroplane_data = firebase.database().ref("aeroplane/").orderByKey();
+	  aeroplane_data.once("value").then(function(snapshot) {
+	  	snapshot.forEach(function(childSnapshot) {
+	
+	  	 var key = childSnapshot.key;
+	  var childData = childSnapshot.val();              
+	
+	  var aname = childSnapshot.val().name;
+	  var aid = childSnapshot.val().id;
+	  if(aname.includes(search))
+	  {
+	  	var dl=document.getElementById("add");
+	  	    var op = document.createElement("option");
+	
+	
+	  		op.appendChild(document.createTextNode(aname));
+	  		dl.appendChild(op);
+	  	// var str = "<option>"+aname;
+  	 //  document.getElementById("add").innerHTML = str;
+
+  }	
+
+  console.log(aname);
+  //console.log(aid);
+    
+
+
+  });
+});
+
+var myNode = document.getElementById("add");
+while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+}
+}
+</script>
+</body>
+</html>
