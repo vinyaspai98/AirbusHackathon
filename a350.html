@@ -214,6 +214,10 @@ var msn11 = document.getElementById('input12').value;
 var msn12 = document.getElementById('input13').value;
 
 
+if(msn == '' ||msn1 == '' ||msn2 == '' ||msn3 == '' ||msn4 == '' ||msn5 == '' ||msn6 == '' ||msn7 == '' ||msn8 == '' ||msn9 == '' ||msn10 == '' ||msn11 == '' ||msn12 == '' ||)
+  alert('All fields must be filled');
+
+else{
 ref.push ({
    msn: msn,
    harness : msn1,
@@ -231,10 +235,10 @@ ref.push ({
 
 });
 
-
-
-
 alert('Successfully updated');
+}
+
+
 }
 // var n1 = document.getElementById('')
   

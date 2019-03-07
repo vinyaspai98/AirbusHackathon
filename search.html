@@ -243,24 +243,24 @@ else if ( a=='' && item[4]==f)
 }
 }
 
-else if(item[0] != a || item[4]!=f)
-{
+else if(a=='' && f==''){
 
-var myNode = document.getElementById("dyn");
-      while (myNode.firstChild) {
-        myNode.removeChild(myNode.firstChild);
-      }
-}
-else
-
-{
 
   for (var i = 0; i < item.length; i++) {
  var node = document.createElement("h4");
       var textnode = document.createTextNode(key[i] +' : '+item[i]);
       node.appendChild(textnode);
       document.getElementById("dyn").appendChild(node);
-}
+      console.log('hey')
+
+}}
+else if (item[0] !=a || item[4]!= f)
+{
+
+  var myNode = document.getElementById("dyn");
+      while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+      }
 }
 
 });
