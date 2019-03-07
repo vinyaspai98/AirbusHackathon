@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- msrit Assist -->
+  <title>Tech MSRIT</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script language="javascript" type="text/javascript" src="js/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="js/p5.dom.js"></script>
+  <script type="text/javascript" src="js/exam.js"></script>
+
+
+
+
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body onload="myFunction()";>
+
+  <div class="fixed-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+      <div class="container">
+        <a class="navbar-brand" href="index.html" style="text-transform: uppercase;"> TECH MSRIT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+
+      <li class="nav-item">
+            <a class="nav-link" href="/a320.html">A320</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/a330.html">A330</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/a350.html">A350</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/search.html">Search & Filter</a>
+          </li>
+    </ul>
+</div>
+</div>
+</nav>
+</div>
+
+
+
+
+
+
+<div style="padding-top: 50px;"></div>
+
+
+
+
+
+
+
+<center> <h2 id ="exam">A350</h2>
+    </center>
+
+
+
+
+
+    <div class="container" id="examf1" >
+
+      <div class="panel-group" >
+        <div class="panel panel-primary" >
+          <!-- <div class="panel-heading">Blood Donors</div> -->
+
+          <div class="panel-body" >
+            <form action="test.php" method="POST">
+                <input type="hidden" name="model" value="a350"  >
+              
+
+
+              <div class="form-group">
+                <label for="input1">MSN</label>
+                <input type="number" class="form-control" id="input1" name="msn" placeholder="msn" required>
+              </div>
+
+              <div class="form-group">
+                <label for="input2">Harness length</label>
+                <input type="number" class="form-control" id="input2" name="harness_length" placeholder="Harness Length" required>
+              </div>
+
+              <div class="form-group">
+                <label for="input3">Gross weight</label>
+                <input type="number" class="form-control" id="input3" name="gross_weight" placeholder="Gross weight" required>
+              </div>
+
+              <div class="form-group">
+                <label for="input4">Atmospheric Pressure</label>
+                <input type="number" class="form-control" id="input4" name="atmospheric_pressure" placeholder="Atmospheric Pressure" required>
+              </div>
+
+              <div class="form-group">
+                <label for="input5">Room temperature</label>
+                <input type="number" class="form-control" id="input5" name="room_temperature" placeholder="Room temperature" required>
+              </div>
+
+              <div class="form-group">
+                <label for="input6">Airport</label>
+                <input type="text" class="form-control" id="input6" name="airport" placeholder="Airport" required>
+              </div>
+
+              <div class="form-group">
+                <label for="input8">Fuel Capacity On left wing</label>
+                <input type="number" class="form-control" id="input8" name="full_capacity_lw" placeholder="Fuel Capacity On left wing" required>
+              </div>
+
+
+              <div class="form-group">
+                <label for="input9">Fuel Capacity On right wing</label>
+                <input type="number" class="form-control" id="input9" name="full_capacity_rw" placeholder="Fuel Capacity On left wing" required>
+              </div>
+
+
+              <div class="form-group">
+                <label for="input10">Fuel Quantity On left wing</label>
+                <input type="number" class="form-control" id="input10" name="fuel_quantity_lw" placeholder="Fuel Capacity On left wing" required>
+              </div>
+
+
+              <div class="form-group">
+                <label for="input11">Fuel Quantity On right wing</label>
+                <input type="number" class="form-control" id="input11" name="fuel_quantity_rw" placeholder="Fuel Quantity On right wing" required>
+              </div>
+
+
+              <div class="form-group">
+                <label for="input12">Max Altitude to be reached</label>
+                <input type="number" class="form-control" id="input12" name="max_alt" placeholder="Max Altitude" required>
+              </div>
+
+
+              <div class="form-group">
+                <label for="input13">Flight no</label>
+                <input type="number" class="form-control" id="input13" name="flight_no" placeholder="Flight no" required>
+              </div>
+
+
+
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</script>
+</html>
